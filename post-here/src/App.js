@@ -5,15 +5,21 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Homepage from './components/Homepage';
 //routing 
-import { Route } from 'react-router';
+import { Route, Link, Redirect } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route path="/" component={ Register } />
-        <Route path="login" component={ Login } />
-        <Route path="/homepage" component={ Homepage } />
+        <Link to="/home">Home</Link>
+        <br />
+        <Link to="/register">Register</Link>
+        <br />
+        <Link to="/login">Login</Link>
+        <hr />
+        <Route  path="/register" component={ Register } />
+        <Route  path="/login" component={ Login } />
+        <Route  path="/home" component={ Homepage } />
       </div>
     );
   }

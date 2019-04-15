@@ -1,20 +1,46 @@
 import React from 'react';
 
-const Register = () => {
-    return (
-        <form>
-            <input
-                placeholder="username"
-                name="username"
-            >
-            </input>
-            <input
-                placeholder="password"
-                name="password"
-            ></input>
-            <button>Register</button>
-        </form>
-    )
+class Register extends React.Component {
+    state={
+        username: '',
+        password: ''
+    }
+
+    handleChanges = (e) => {
+        e.preventDefault();
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <input
+                    onChange={this.handleChanges}
+                    placeholder="username"
+                    name="username"
+                    value={this.state.username}
+                    required
+                >
+                </input>
+                <input
+                    onChange={this.handleChanges}
+                    placeholder="password"
+                    name="password"
+                    value={this.state.password}
+                    requied
+                >
+                </input>
+                <button>Register</button>
+                <hr />
+            </form>
+        )
+    }
 }
 
 export default Register;

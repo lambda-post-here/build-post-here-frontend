@@ -11,12 +11,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Link to="/home">Home</Link>
-        <br />
-        <Link to="/register">Register</Link>
-        <br />
-        <Link to="/login">Login</Link>
-        <hr />
+        <nav>
+          <Link to="/home">Home</Link>
+          <br />
+          <Link to="/register">Register</Link>
+          <br />
+          <Link to="/login">Login</Link>
+          <hr />
+        </nav>
         <Route  path="/register" component={ Register } />
         <Route  path="/login" component={ Login } />
         <Route  path="/home" component={ Homepage } />

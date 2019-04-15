@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 //actions  
+import { login } from '../actions';
 
 class Login extends React.Component {
     state={
+        email: '',
         username: '',
-        paddword: ''
+        password: ''
     }
 
     handleChanges = (e) => {
@@ -17,11 +20,20 @@ class Login extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //call action with auth token
+        
     }
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
+                <input
+                    onChange={this.handleChanges}
+                    placeholder="email"
+                    name="email"
+                    value={this.state.username}
+                    required
+                >
+                </input>
                 <input
                     onChange={this.handleChanges}
                     placeholder="username"
@@ -45,4 +57,10 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        ...state, 
+    }
+}
+
+export default connect(mapStateToProps, {})(Login);

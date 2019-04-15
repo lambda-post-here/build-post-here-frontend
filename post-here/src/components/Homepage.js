@@ -38,4 +38,10 @@ class Homepage extends React.Component {
     }
 }
 
-export default Homepage;
+const mapStateToProps = (state) => {
+    return {
+        ...state,
+    }
+}
+
+export default connect(mapStateToProps, {})(Homepage);

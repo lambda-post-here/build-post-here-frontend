@@ -25,7 +25,7 @@ export const register = (credentials) => dispatch => {
 
 export const login = (credentials) => dispatch => {
     dispatch({ type: LOGIN_START});
-    axios.post('', credentials)
+    return axios.post('', credentials)
         .then((res) => {
             console.log(res);
             dispatch({ type: LOGIN_SUCCESS, payload: res.data });
@@ -38,5 +38,5 @@ export const login = (credentials) => dispatch => {
 
 export const logout = () => dispatch => {
     dispatch({ type: LOGOUT });
-    
+
 }

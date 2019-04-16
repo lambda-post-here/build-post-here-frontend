@@ -13,7 +13,8 @@ const initialState = {
     data: [],
     fetchingData: false,
     isLoggedIn: false,
-    error: ''
+    error: '',
+    token: ''
 }
 
 //Reducer
@@ -23,7 +24,8 @@ export const rootReducer = (state=initialState, action) => {
         case REGISTER_START:
         return {
             ...state,
-            fetchingData: true
+            fetchingData: true,
+            token: action.payload
         }
         case REGISTER_SUCCESS:
         return {
@@ -39,6 +41,7 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: true, 
+            token: action.payload
         }
         case LOGIN_SUCCESS:
         return {

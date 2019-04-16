@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+//actions 
+import { register } from '../actions';
 
 class Register extends React.Component {
     state={
-        email: '',
         username: '',
         password: ''
     }
@@ -17,38 +18,34 @@ class Register extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        this.props.register(this.state);
     }
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input
-                    onChange={this.handleChanges}
-                    placeholder="email"
-                    name="email"
-                    value={this.state.email}
-                    required
-                >
-                </input>
-                <input
-                    onChange={this.handleChanges}
-                    placeholder="username"
-                    name="username"
-                    value={this.state.username}
-                    required
-                >
-                </input>
-                <input
-                    onChange={this.handleChanges}
-                    placeholder="password"
-                    name="password"
-                    value={this.state.password}
-                    requied
-                >
-                </input>
-                <button>Register</button>
-                <hr />
-            </form>
+            <div>
+                <h1>Register</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <input
+                        onChange={this.handleChanges}
+                        placeholder="username"
+                        name="username"
+                        value={this.state.username}
+                        required
+                    >
+                    </input>
+                    <input
+                        onChange={this.handleChanges}
+                        placeholder="password"
+                        name="password"
+                        value={this.state.password}
+                        required
+                    >
+                    </input>
+                    <button>Register</button>
+                    <hr />
+                </form>
+            </div>
         )
     }
 }
@@ -60,4 +57,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, {})(Register);
+export default connect(mapStateToProps, { register })(Register);

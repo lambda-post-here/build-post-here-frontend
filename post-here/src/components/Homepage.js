@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Homepage extends React.Component {
     state={
@@ -15,20 +17,22 @@ class Homepage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //action to call api
+
     }
 
     render() {
         return (
             <div>
+                <Link to="/login">logout</Link>
                 <h1>Find out where to post</h1>
                 <form>
-                    <input
+                    <textarea
                         onChange={this.handleChanges}
                         name="post"
                         placeholder='Reddit post'
                         required
                     >
-                    </input>
+                    </textarea>
                     <button>Send</button>
                     <hr />
                 </form>

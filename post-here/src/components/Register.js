@@ -23,15 +23,17 @@ class Register extends React.Component {
         e.preventDefault();
         this.props.register(this.state)
         .then(() => {
-            this.props.history.push('/home');
+            alert('pushing to homepage');
+            this.props.history.push("/home");
         })
     }
 
     render() {
         return (
-            <div>
+            <div className="register">
                 <h1>Register</h1>
-                <form onSubmit={this.handleSubmit}>
+                <hr />
+                <form onSubmit={this.handleSubmit} className="form">
                     <input
                         onChange={this.handleChanges}
                         placeholder="username"

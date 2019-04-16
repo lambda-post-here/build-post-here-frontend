@@ -1,3 +1,4 @@
+
 //actions 
 import {
     REGISTER_START,
@@ -35,7 +36,7 @@ export const rootReducer = (state=initialState, action) => {
         }
         case REGISTER_FAIL:
         return {
-            error: 'Register Failed'
+            error: action.payload
         }
         case LOGIN_START:
         return {
@@ -47,11 +48,12 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: false,
-            isLoggedIn: true
+            isLoggedIn: true,
+            token: action.payload
         }
         case LOGIN_FAIL:
         return {
-            error: 'Login failed'
+            error: action.payload
         }
         default: return state;
     }

@@ -15,6 +15,7 @@ class Login extends React.Component {
     handleChanges = (e) => {
         e.preventDefault();
         this.setState({
+            ...this.state,
             [e.target.name] : e.target.value
         })
     }
@@ -23,16 +24,18 @@ class Login extends React.Component {
         e.preventDefault(this.state);
         this.props.login(this.state)
         .then(() => {
+            console.log(this.props)
+            console.log(this.props.token);
             this.props.history.push('/home');
         })
-
     }
 
     render() {
         return (
-            <div>
+            <div className="login">
                 <h1>Login</h1>
-                <form onSubmit={this.handleSubmit}>
+                <hr/>
+                <form onSubmit={this.handleSubmit} className="form">
                     <input 
                         onChange={this.handleChanges}
                         placeholder="username"
@@ -52,7 +55,6 @@ class Login extends React.Component {
                     >
                     </input>
                     <button className="login-button">Login</button>
-                    <hr />
                 </form>
             </div>
         )

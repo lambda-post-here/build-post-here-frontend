@@ -1,5 +1,23 @@
+.register {
+    background-color: rgb(216, 216, 216);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
 .input {
     padding: 10px;
+    margin-bottom: 10px;
 }
 .register-button {
     padding: 10px;

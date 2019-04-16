@@ -5,6 +5,9 @@ const FooterStyle = styled.h4`
     color: white; 
     background-color: black;
     padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 `;
 
 export const Footer = () => {

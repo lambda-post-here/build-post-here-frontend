@@ -22,7 +22,7 @@ export const register = (credentials) => dispatch => {
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: REGISTER_FAIL });
+            dispatch({ type: REGISTER_FAIL, payload: err.response.message });
         })
 }
 
@@ -36,13 +36,13 @@ export const login = (credentials) => dispatch => {
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: LOGIN_FAIL });
+            dispatch({ type: LOGIN_FAIL,  payload: err.response.message });
         })
 }
 
 export const logout = (credentials) => dispatch => {
     dispatch({ type: LOGOUT });
-    axios.put('', credentials)
+    axios.put(`${URL}/api/auth/logout`, credentials)
         .then((res) => {
             console.log(res);
         })

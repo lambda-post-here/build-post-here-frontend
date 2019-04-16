@@ -1,0 +1,8 @@
+/* Homepage css */
+.text-area {
+    resize: none;
+    width: 400px;
+    height: 200px;
+    outline: none;
+    overflow: auto;
+}

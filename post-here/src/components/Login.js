@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 //actions  
 import { login } from '../actions';
-import styled from 'styled-components';
-//styled-components
+//css
+import '../css/Login.css';
 
 
 class Login extends React.Component {
@@ -21,7 +21,10 @@ class Login extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault(this.state);
-        this.props.login(this.state);
+        this.props.login(this.state)
+        .then(() => {
+            this.props.history.push('/home');
+        })
 
     }
 
@@ -30,11 +33,12 @@ class Login extends React.Component {
             <div>
                 <h1>Login</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <input
+                    <input 
                         onChange={this.handleChanges}
                         placeholder="username"
                         name="username"
                         value={this.state.username}
+                        className="input"
                         required
                     >
                     </input>
@@ -43,10 +47,11 @@ class Login extends React.Component {
                         placeholder="password"
                         name="password"
                         value={this.state.password}
+                        className="input"
                         required
                     >
                     </input>
-                    <button>Login</button>
+                    <button className="login-button">Login</button>
                     <hr />
                 </form>
             </div>

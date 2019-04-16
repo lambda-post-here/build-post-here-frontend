@@ -53,5 +53,6 @@ export const rootReducer = (state=initialState, action) => {
         return {
             error: 'Login failed'
         }
+        default: return state;
     }
 }

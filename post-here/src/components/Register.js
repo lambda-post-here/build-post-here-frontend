@@ -2,6 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 //actions 
 import { register } from '../actions';
+//css
+import '../css/Register.css';
+
 
 class Register extends React.Component {
     state={
@@ -18,7 +21,10 @@ class Register extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.register(this.state);
+        this.props.register(this.state)
+        .then(() => {
+            this.props.history.push('/home');
+        })
     }
 
     render() {
@@ -31,6 +37,7 @@ class Register extends React.Component {
                         placeholder="username"
                         name="username"
                         value={this.state.username}
+                        className="input"
                         required
                     >
                     </input>
@@ -39,10 +46,11 @@ class Register extends React.Component {
                         placeholder="password"
                         name="password"
                         value={this.state.password}
+                        className="input"
                         required
                     >
                     </input>
-                    <button>Register</button>
+                    <button className="register-button">Register</button>
                     <hr />
                 </form>
             </div>

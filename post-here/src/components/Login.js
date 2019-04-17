@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 //actions  
 import { login } from '../actions';
 //css
@@ -33,7 +34,7 @@ class Login extends React.Component {
     render() {
         return (
             <div className="login">
-                <h1>Login</h1>
+                <h1 className="login-text">Login</h1>
                 <hr/>
                 <form onSubmit={this.handleSubmit} className="form">
                     <input 
@@ -55,6 +56,8 @@ class Login extends React.Component {
                     >
                     </input>
                     <button className="login-button">Login</button>
+                    <p>Don't have an account?</p>
+                    <NavLink className="link" to="/register">Register</NavLink>
                 </form>
             </div>
         )

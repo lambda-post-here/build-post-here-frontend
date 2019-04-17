@@ -1,4 +1,5 @@
 import axios from 'axios';
+//Endpoint
 const URL = 'https://post-here.herokuapp.com'
 //registering
 export const REGISTER_START = 'REGISTER_START';
@@ -12,8 +13,16 @@ export const LOGIN_FAIL = 'LOGIN_FAIL';
 export const LOGOUT = 'LOGOUT'
 //get-data
 export const GET_DATA = 'GET_DATA';
+export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
+export const GET_DATA_FAIL = 'GET_DATA_FAIL'
 //update 
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
+export const UPDATE_PASSWORD_SUCCESS = 'UPDATE_PASSWORD_SUCCESS';
+export const UPDATE_PASSWORD_FAIL = 'UPDATE_PASSWORD_FAIL';
+//delete account 
+export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
+export const DELETE_ACCOUNT_SUCCESS = 'DELETE_ACCOUNT_SUCCESS';
+export const DELETE_ACCOUNT_FAIL = 'DELETE_ACCOUNT_FAIL';
 //actions
 
 export const register = (credentials) => dispatch => {
@@ -44,12 +53,27 @@ export const login = (credentials) => dispatch => {
         })
 }
 
-export const getData = (credentials) => dispatch => {
+export const getData = () => dispatch => {
     dispatch({ type: GET_DATA});
-    return axios.get('/api/post', credentials)
+    return axios.get(`${URL}/api/post`)
         .then((res) => {
             console.log(res);
             dispatch({ type: GET_DATA, payload: res.data });
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({ type: GET_DATA_FAIL, payload: err })
+        })
+}
+
+export const updatePassword = () => dispatch => {
+    dispatch({ type: UPDATE_PASSWORD })
+    return axios.put(`${URL}/api/patch`)
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
         })
 }
 

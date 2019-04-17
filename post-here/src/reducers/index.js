@@ -1,3 +1,5 @@
+import { bindActionCreators } from "redux";
+
 
 //actions 
 import {
@@ -6,7 +8,9 @@ import {
     REGISTER_FAIL,
     LOGIN_START,
     LOGIN_SUCCESS,
-    LOGIN_FAIL
+    LOGIN_FAIL,
+    GET_DATA,
+    GET_DATA_SUCCESS
 } from '../actions';
 
 //The source of all truth
@@ -54,6 +58,18 @@ export const rootReducer = (state=initialState, action) => {
         case LOGIN_FAIL:
         return {
             error: action.payload
+        }
+        case GET_DATA:
+        return {
+            ...state, 
+            fetchingData: true,
+            isLoggedIn: true
+        }
+        case GET_DATA_SUCCESS: 
+        return {
+            ...state,
+            fetchingData: false,
+            data: action.payload
         }
         default: return state;
     }

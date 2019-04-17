@@ -18,12 +18,20 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+  box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+  background: #e570e7; /* Old browsers */
+  background: linear-gradient(to right, #e570e7 0%,#e0641d 54%,#a849a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=0 ); /* IE6-9 */
 `;
 
 const Logo = styled.img`
   width: 40px;
   height: 40px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
 `;
 
 class App extends Component {
@@ -35,14 +43,13 @@ class App extends Component {
             <Logo src={Reddit} />
           </div>
           <div>
-            <NavLink className="link" to="/login">Login</NavLink>
-            <NavLink className="link" to="/register">Register</NavLink>
             <NavLink className="link" to="/home">Home</NavLink>
+            <NavLink className="link" to="/login">Logout</NavLink>
           </div>
         </Nav>
-        <Route path="/register" component={ Register } />
-        <Route path="/login" component={ Login } />
-        <PrivateRoute path="/home" component={ Homepage } />
+        <Route exact path="/register" component={ Register } />
+        <Route exact path="/login" component={ Login } />
+        <PrivateRoute exact path="/home" component={ Homepage } />
         <Footer />
       </div>
     );

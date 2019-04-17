@@ -53,7 +53,7 @@ class Homepage extends React.Component {
                     </textarea>
                     <button className="send-button">Send</button>
                     <div>
-                        <NavLink className="link" to="/login">*Logout</NavLink>
+                        <NavLink className="link" to="/">*Logout</NavLink>
                     </div>
                 </form>
                 {/* MAP SOME DATA */}

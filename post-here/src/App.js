@@ -6,6 +6,10 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Homepage from './components/Homepage';
 import { Footer } from './components/Footer';
+//canvas 
+import Canvas from './components/Canvas';
+//react-spring
+import {useSpring, animated} from 'react-spring';
 //routing 
 import { Route, NavLink } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
@@ -34,26 +38,27 @@ const Logo = styled.img`
   padding: 5px;
 `;
 
-class App extends Component {
-  render() {
+const App = () => {
+  
+  const fade = useSpring({opacity: 1, from: {opacity: 0}});
     return (
-      <div className="App">
+      <animated.div className="App" style={fade}>
         <Nav className="nav">
           <div>
             <Logo src={Reddit} />
           </div>
           <div>
             <NavLink className="link" to="/home">Home</NavLink>
-            <NavLink className="link" to="/login">Logout</NavLink>
           </div>
         </Nav>
         <Route exact path="/register" component={ Register } />
         <Route exact path="/login" component={ Login } />
         <PrivateRoute exact path="/home" component={ Homepage } />
+        <Canvas />
         <Footer />
-      </div>
+      </animated.div>
     );
-  }
+
 }
 
 export default App;

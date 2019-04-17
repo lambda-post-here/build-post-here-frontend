@@ -8,9 +8,14 @@
     -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
     box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
+    margin-top: 50px;
+    margin-bottom: 200px;
 }
 .login-text {
     margin-right: 370px;
+}
+.link {
+    color: black;
 }
 .form {
     display: flex;
@@ -25,7 +30,7 @@
 }
 .login-button {
     padding: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     border: 1px solid black;
     font-size: 1.5rem;
     border-radius: 5px;

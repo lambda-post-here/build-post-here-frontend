@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const FooterStyle = styled.h4`
     color: white; 
-    background-color: black;
     margin-bottom: 0;
     padding: 10px;
     position: fixed;

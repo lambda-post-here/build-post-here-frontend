@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../css/Homepage.css';
 import styled from 'styled-components';
 //actions 
@@ -52,6 +52,9 @@ class Homepage extends React.Component {
                     >
                     </textarea>
                     <button className="send-button">Send</button>
+                    <div>
+                        <NavLink className="link" to="/login">*Logout</NavLink>
+                    </div>
                 </form>
                 {/* MAP SOME DATA */}
                 {console.log(this.props.data)}

@@ -1,0 +1,8 @@
+/* Canvas Styles */
+#canvas {
+    z-index: -1;
+    background-color: black;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+}

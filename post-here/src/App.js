@@ -10,6 +10,8 @@ import { Footer } from './components/Footer';
 import Canvas from './components/Canvas';
 //react-spring
 import {useSpring, animated} from 'react-spring';
+//transition-groups
+
 //routing 
 import { Route, NavLink } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
@@ -52,7 +54,7 @@ const App = () => {
           </div>
         </Nav>
         <Route exact path="/register" component={ Register } />
-        <Route exact path="/login" component={ Login } />
+        <Route exact path="/" component={ Login } />
         <PrivateRoute exact path="/home" component={ Homepage } />
         <Canvas />
         <Footer />

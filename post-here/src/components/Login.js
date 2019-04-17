@@ -6,7 +6,6 @@ import { login } from '../actions';
 //css
 import '../css/Login.css';
 
-
 class Login extends React.Component {
     state={
         username: 'user',

@@ -47,5 +47,32 @@
 .send-button:hover {
     color: white;
   background-color: lightslategray;
-  border: none;
+  border: 1px solid lightslategray;
+}
+.delete-button {
+    background-color: crimson;
+    width: 426px;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.delete-button:hover {
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+}
+
+.update-button {
+    width: 426px;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.update-button:hover {
+    color: white;
+    background-color: black;
 }

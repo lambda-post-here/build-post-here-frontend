@@ -1,6 +1,3 @@
-import { bindActionCreators } from "redux";
-
-
 //actions 
 import {
     REGISTER_START,
@@ -19,7 +16,8 @@ const initialState = {
     fetchingData: false,
     isLoggedIn: false,
     error: '',
-    token: ''
+    token: '',
+    id: ''
 }
 
 //Reducer
@@ -30,7 +28,8 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: true,
-            token: action.payload
+            token: action.payload,
+            id: action.id
         }
         case REGISTER_SUCCESS:
         return {
@@ -46,7 +45,8 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: true, 
-            token: action.payload
+            token: action.payload,
+            id: action.id
         }
         case LOGIN_SUCCESS:
         return {

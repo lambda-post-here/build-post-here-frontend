@@ -12,7 +12,7 @@ class Homepage extends React.Component {
     state={
         title: '',
         body: '',
-        passwor: '',
+        password: '',
         image: 'images bro'
     }
 
@@ -32,7 +32,8 @@ class Homepage extends React.Component {
 
     updatePassword = (e) => {
         e.preventDefault();
-        this.props.updatePassword();
+        let password = {password: this.state.password}
+        this.props.updatePassword(password);
     }
 
     deleteAccount = (e) => {
@@ -52,6 +53,7 @@ class Homepage extends React.Component {
     logOut = (e) => {
         e.preventDefault();
         this.removeStorage();
+        this.props.history.push('/');
     }
 
     render() {

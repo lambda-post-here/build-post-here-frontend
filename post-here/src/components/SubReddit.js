@@ -10,8 +10,8 @@ class SubReddit extends React.Component {
                 {this.props.data.map((data) => {
                     return (
                         <div key={Date.now()}>
-                            <h1>{data.rec}</h1>
-                            <p>{data.score}</p>
+                            <a target="_blank" href={`https://www.reddit.com/r/${data.rec}`}>{`r/${data.rec}`}</a>
+                            <p>{`${Math.round((data.score) * 100)}% Match`}</p>
                         </div>
                     )
                 })}

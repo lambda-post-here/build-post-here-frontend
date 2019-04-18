@@ -67,9 +67,9 @@ export const getData = (post) => dispatch => {
         })
 }
 
-export const updatePassword = () => dispatch => {
+export const updatePassword = (password) => dispatch => {
     dispatch({ type: UPDATE_PASSWORD })
-    return axios.put(`${URL}/api/auth/users`, {headers: {Authorization:localStorage.getItem('token')}})
+    return axios.put(`${URL}/api/auth/users`, password, {headers: {Authorization:localStorage.getItem('token')}})
         .then((res) => {
             console.log(res);
             dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: res.data });

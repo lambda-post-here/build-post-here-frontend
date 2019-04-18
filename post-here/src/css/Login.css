@@ -41,3 +41,19 @@
   border: 1px solid lightslategray;
   cursor: pointer;
 }
+
+/* appear on page load */
+.fade-appear {
+    opacity: 0;
+}
+.fade-appear.fade-appear-active {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}
+.fade-enter {
+    opacity: 0;
+}
+.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 500ms linear;
+}

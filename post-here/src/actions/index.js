@@ -42,7 +42,7 @@ export const register = (credentials) => dispatch => {
 
 export const login = (credentials) => dispatch => {
     dispatch({ type: LOGIN_START});
-    return axios.post(`${URL}/api/auth/login`, credentials)
+    return axios.post(`${URL}/api/auth/login`, credentials )
         .then((res) => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
@@ -56,7 +56,7 @@ export const login = (credentials) => dispatch => {
 
 export const getData = (post) => dispatch => {
     dispatch({ type: GET_DATA});
-    return axios.post(`${URL}/api/post`, post)
+    return axios.post(`${URL}/api/post`, post, {headers: {Authorization:localStorage.getItem('token')}})
         .then((res) => {
             console.log(res);
             dispatch({ type: GET_DATA_SUCCESS, payload: res.data });

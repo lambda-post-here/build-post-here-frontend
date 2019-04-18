@@ -5,15 +5,20 @@ import { NavLink } from 'react-router-dom';
 import { login } from '../actions';
 //css
 import '../css/Login.css';
+import { CSSTransition } from 'react-transition-group';
 
 class Login extends React.Component {
     state={
+        user: {
         username: 'user',
-        password: 'pass'
+        password: 'pass',
+        },
+        appearLogin: true
     }
 
     handleChanges = (e) => {
         e.preventDefault();
+        console.log(e.target.value);
         this.setState({
             ...this.state,
             [e.target.name] : e.target.value
@@ -30,33 +35,40 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="login">
-                <h1 className="login-text">Login</h1>
-                <hr/>
-                <form onSubmit={this.handleSubmit} className="form">
-                    <input 
-                        onChange={this.handleChanges}
-                        placeholder="username"
-                        name="username"
-                        value={this.state.username}
-                        className="input"
-                        required
-                    >
-                    </input>
-                    <input
-                        onChange={this.handleChanges}
-                        placeholder="password"
-                        name="password"
-                        value={this.state.password}
-                        className="input"
-                        required
-                    >
-                    </input>
-                    <button className="login-button">Login</button>
-                    <p>Don't have an account?</p>
-                    <NavLink className="link" to="/register">*Register</NavLink>
-                </form>
-            </div>
+            <CSSTransition
+                in={this.state.appearLogin}
+                appear={true}
+                timeout={500}
+                classNames="fade"
+            >
+                <div className="login">
+                    <h1 className="login-text">Login</h1>
+                    <hr/>
+                    <form onSubmit={this.handleSubmit} className="form">
+                        <input 
+                            onChange={this.handleChanges}
+                            placeholder="username"
+                            name="username"
+                            value={this.state.username}
+                            className="input"
+                            required
+                        >
+                        </input>
+                        <input
+                            onChange={this.handleChanges}
+                            placeholder="password"
+                            name="password"
+                            value={this.state.password}
+                            className="input"
+                            required
+                        >
+                        </input>
+                        <button className="login-button">Login</button>
+                        <p>Don't have an account?</p>
+                        <NavLink className="link" to="/register">*Register</NavLink>
+                    </form>
+                </div>
+            </CSSTransition>
         )
     }
 }

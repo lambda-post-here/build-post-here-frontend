@@ -6,17 +6,21 @@ import Loader from 'react-loader-spinner';
 import { register } from '../actions';
 //css
 import '../css/Register.css';
-
+import { CSSTransition } from 'react-transition-group';
 
 class Register extends React.Component {
     state={
+        user: {
         username: '',
-        password: ''
+        password: '',
+        },
+        appearRegister: true
     }
 
     handleChanges = (e) => {
         e.preventDefault();
         this.setState({
+            ...this.state,
             [e.target.name] : e.target.value
         })
     }
@@ -31,6 +35,12 @@ class Register extends React.Component {
 
     render() {
         return (
+            <CSSTransition
+                in={this.state.appearRegister}
+                appear={true}
+                timeout={500}
+                classNames="fade"
+            >
             <div className="register">
                 <h1 className="register-text">Register</h1>
                 <hr />
@@ -58,6 +68,7 @@ class Register extends React.Component {
                     <NavLink className="link" to="/">*Login</NavLink>
                 </form>
             </div>
+            </CSSTransition>
         )
     }
 }

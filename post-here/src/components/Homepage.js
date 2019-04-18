@@ -52,6 +52,7 @@ class Homepage extends React.Component {
     logOut = (e) => {
         e.preventDefault();
         this.removeStorage();
+        this.props.history.push('/');
     }
 
     render() {

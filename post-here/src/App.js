@@ -19,7 +19,7 @@ import styled from 'styled-components';
 //styled-components
 const Nav = styled.div`
   display: flex;
-  padding: 10px;
+  padding: 5px;
   background-color: purple;
   display: flex;
   justify-content: space-between;
@@ -33,8 +33,8 @@ const Nav = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   background-color: white;
   border-radius: 10px;
   padding: 5px;

@@ -33,7 +33,8 @@ class Homepage extends React.Component {
     updatePassword = (e) => {
         e.preventDefault();
         let password = {password: this.state.password}
-        this.props.updatePassword(password);
+        this.props.updatePassword(password)
+        .then(this.props.history.push('/'));
     }
 
     deleteAccount = (e) => {
@@ -85,14 +86,14 @@ class Homepage extends React.Component {
                 <form onSubmit={this.updatePassword}>
                     <input 
                         onChange={this.handleChanges}
-                        placeholder="Enter your title..."
-                        name="title"
-                        value={this.state.title}
+                        placeholder="Enter your new password..."
+                        name="password"
+                        value={this.state.password}
                         className="title-input"
                         required
                     >
                     </input>
-                    <button className="update-button">Update Password</button>
+                    <button onClick={this.updatePassword} className="update-button">Update Password</button>
                 </form>
                 <button onClick={this.deleteAccount} className="delete-button">Delete Account</button>
                 <div>

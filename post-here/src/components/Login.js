@@ -10,8 +10,8 @@ import { CSSTransition } from 'react-transition-group';
 class Login extends React.Component {
     state={
         user: {
-        username: 'user',
-        password: 'pass',
+        username: '',
+        password: '',
         },
         appearLogin: true
     }

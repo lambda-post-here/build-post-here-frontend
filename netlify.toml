@@ -1,0 +1,14 @@
+[Settings]
+ID = "9b3175f2-2753-4fb4-8247-1c3bd87df836"
+
+
+# Settings in the [build] context are global and are applied to all contexts unless otherwise overridden by more specific contexts.  
+
+[build]
+  # This is the directory to change to before starting a build.
+  base    = "/post-here"
+  # NOTE: This is where we will look for package.json/.nvmrc/etc, not root.
+  # This is the directory that you are publishing from (relative to root of your repo)
+  publish = "instagram/real-instagram-clone/build/"
+  # This will be your default build command
+  command = "yarn build"

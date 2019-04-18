@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Loader from 'react-loader-spinner';
 //actions 
 import { register } from '../actions';
 //css
@@ -24,7 +25,6 @@ class Register extends React.Component {
         e.preventDefault();
         this.props.register(this.state)
         .then(() => {
-            alert('pushing to homepage');
             this.props.history.push("/home");
         })
     }

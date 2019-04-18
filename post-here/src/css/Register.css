@@ -33,6 +33,7 @@
 }
 .register-button:hover {
     background-color: lightslategray;
-    border: none;
+    border: 1px solid lightslategray;
     color: white;
+    cursor: pointer;
 }

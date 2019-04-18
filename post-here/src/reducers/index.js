@@ -1,6 +1,3 @@
-import { bindActionCreators } from "redux";
-
-
 //actions 
 import {
     REGISTER_START,
@@ -10,16 +7,26 @@ import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
     GET_DATA,
-    GET_DATA_SUCCESS
+    GET_DATA_SUCCESS,
+    GET_DATA_FAIL,
+    UPDATE_PASSWORD,
+    UPDATE_PASSWORD_SUCCESS,
+    UPDATE_PASSWORD_FAIL,
+    DELETE_ACCOUNT,
+    DELETE_ACCOUNT_SUCCESS,
+    DELETE_ACCOUNT_FAIL
 } from '../actions';
 
 //The source of all truth
 const initialState = {
     data: [],
+    title: '',
+    body: '',
     fetchingData: false,
     isLoggedIn: false,
     error: '',
-    token: ''
+    token: '',
+    id: ''
 }
 
 //Reducer
@@ -30,7 +37,8 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: true,
-            token: action.payload
+            token: action.payload,
+            id: action.id
         }
         case REGISTER_SUCCESS:
         return {
@@ -46,7 +54,8 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: true, 
-            token: action.payload
+            token: action.payload,
+            id: action.id
         }
         case LOGIN_SUCCESS:
         return {
@@ -69,7 +78,39 @@ export const rootReducer = (state=initialState, action) => {
         return {
             ...state,
             fetchingData: false,
-            data: action.payload
+            data: action.payload.response,
+
+        }
+        case GET_DATA_FAIL: 
+        return {
+            error: action.payload
+        }
+        case UPDATE_PASSWORD:
+        return {
+            ...state, 
+            fetchingData: true
+        }
+        case UPDATE_PASSWORD_SUCCESS:
+        return {
+            
+        }
+        case UPDATE_PASSWORD_FAIL:
+        return {
+            error: action.payload
+        }
+        case DELETE_ACCOUNT:
+        return {
+            ...state, 
+            fetchingData: true, 
+        }
+        case DELETE_ACCOUNT_SUCCESS:
+        return {
+            ...state,
+        }
+        case DELETE_ACCOUNT_FAIL:
+        return {
+            ...state, 
+            error: action.payload
         }
         default: return state;
     }

@@ -1,6 +1,6 @@
 import axios from 'axios';
 //Endpoint
-const URL = 'https://post-here.herokuapp.com'
+const URL = 'https://post-here.herokuapp.com';
 //registering
 export const REGISTER_START = 'REGISTER_START';
 export const REGISTER_SUCCESS = 'REGISTER_SUCESS';
@@ -14,7 +14,7 @@ export const LOGOUT = 'LOGOUT'
 //get-data
 export const GET_DATA = 'GET_DATA';
 export const GET_DATA_SUCCESS = 'GET_DATA_SUCCESS';
-export const GET_DATA_FAIL = 'GET_DATA_FAIL'
+export const GET_DATA_FAIL = 'GET_DATA_FAIL';
 //update 
 export const UPDATE_PASSWORD = 'UPDATE_PASSWORD';
 export const UPDATE_PASSWORD_SUCCESS = 'UPDATE_PASSWORD_SUCCESS';
@@ -31,11 +31,12 @@ export const register = (credentials) => dispatch => {
         .then((res) => {
             console.log(res);
             localStorage.setItem('token', res.data.token);
-            dispatch({ type: REGISTER_SUCCESS, payload: res.data.token });
+            localStorage.setItem('id', res.data.id);
+            dispatch({ type: REGISTER_SUCCESS, payload: res.data.token, id: res.data.id });
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: REGISTER_FAIL, payload: err.data.message });
+            dispatch({ type: REGISTER_FAIL, payload: err });
         })
 }
 
@@ -44,36 +45,51 @@ export const login = (credentials) => dispatch => {
     return axios.post(`${URL}/api/auth/login`, credentials)
         .then((res) => {
             console.log(res);
-            localStorage.setItem('token', res.data.token)
-            dispatch({ type: LOGIN_SUCCESS, payload: res.data.token })
+            localStorage.setItem('token', res.data.token);
+            dispatch({ type: LOGIN_SUCCESS, payload: res.data.token, id: res.data.id });
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: LOGIN_FAIL,  payload: err.data.message })
+            dispatch({ type: LOGIN_FAIL,  payload: err });
         })
 }
 
-export const getData = () => dispatch => {
+export const getData = (post) => dispatch => {
     dispatch({ type: GET_DATA});
-    return axios.get(`${URL}/api/post`)
+    return axios.post(`${URL}/api/post`, post)
         .then((res) => {
             console.log(res);
-            dispatch({ type: GET_DATA, payload: res.data });
+            dispatch({ type: GET_DATA_SUCCESS, payload: res.data });
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: GET_DATA_FAIL, payload: err })
+            dispatch({ type: GET_DATA_FAIL, payload: err });
         })
 }
 
 export const updatePassword = () => dispatch => {
     dispatch({ type: UPDATE_PASSWORD })
-    return axios.put(`${URL}/api/patch`)
+    return axios.put(`${URL}/api/auth/users`, {headers: {Authorization:localStorage.getItem('token')}})
         .then((res) => {
             console.log(res);
+            dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: res.data });
         })
         .catch((err) => {
             console.log(err);
+            dispatch({ type: UPDATE_PASSWORD_FAIL, payload: err});
+        })
+}
+
+export const deleteAccount = () => dispatch => {
+    dispatch({ type: DELETE_ACCOUNT })
+    return axios.delete(`${URL}/api/auth/users`, {headers: {Authorization:localStorage.getItem('token')}})
+        .then((res) => {
+            console.log(res);
+            dispatch({ type: DELETE_ACCOUNT_SUCCESS, payload: res.data});
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({ type: DELETE_ACCOUNT_FAIL, payload: err });
         })
 }
 

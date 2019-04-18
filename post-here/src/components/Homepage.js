@@ -83,6 +83,7 @@ class Homepage extends React.Component {
                     </textarea>
                     <button className="send-button">Analyze</button>
                 </form>
+                {this.props.data && <SubReddit />}
                 <form onSubmit={this.updatePassword}>
                     <input 
                         onChange={this.handleChanges}
@@ -99,7 +100,6 @@ class Homepage extends React.Component {
                 <div>
                     <NavLink onClick={this.logOut} className="link" to="/">*Logout</NavLink>
                 </div>
-                {this.props.data && <SubReddit />}
             </div>
         )
     }

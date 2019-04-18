@@ -1,4 +1,7 @@
 /* Homepage css */
+.container {
+
+}
 .homepage-form {
     background-color: rgb(216, 216, 216);
     display: flex;
@@ -46,8 +49,8 @@
 }
 .send-button:hover {
     color: white;
-    background-color: lightslategray;
-    border: 1px solid lightslategray;
+    background-color: #8694B8;
+    border: 1px solid #8694B8;
     cursor: pointer;
 }
 .delete-button {
@@ -76,6 +79,19 @@
 }
 .update-button:hover {
     color: white;
-    background-color: black;
+    background-color: #364A7D;
     cursor: pointer;
+}
+.logout-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.subReddit {
+    box-sizing: border-box;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
 }

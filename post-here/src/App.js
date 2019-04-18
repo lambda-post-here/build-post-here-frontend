@@ -13,23 +13,20 @@ import {useSpring, animated} from 'react-spring';
 //transition-groups
 
 //routing 
-import { Route, NavLink } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import styled from 'styled-components';
 //styled-components
 const Nav = styled.div`
   display: flex;
   padding: 5px;
-  background-color: purple;
+  background-color: #364A7D;
   display: flex;
   justify-content: space-between;
   align-items: center;
   -webkit-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
   box-shadow: -1px 2px 28px -9px rgba(0,0,0,0.75);
-  background: #e570e7; /* Old browsers */
-  background: linear-gradient(to right, #e570e7 0%,#e0641d 54%,#a849a3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e570e7', endColorstr='#a849a3',GradientType=0 ); /* IE6-9 */
 `;
 
 const Logo = styled.img`
@@ -50,7 +47,7 @@ const App = () => {
             <Logo src={Reddit} />
           </div>
           <div>
-            <NavLink className="link" to="/home">Home</NavLink>
+            <a className="link" href="https://post-here-marketing.netlify.com/index.html">Home</a>
           </div>
         </Nav>
         <Route exact path="/register" component={ Register } />

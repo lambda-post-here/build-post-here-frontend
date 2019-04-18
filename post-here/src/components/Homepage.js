@@ -83,7 +83,9 @@ class Homepage extends React.Component {
                     </textarea>
                     <button className="send-button">Analyze</button>
                 </form>
-                {this.props.data && <SubReddit />}
+                <div className="subReddit">
+                    {this.props.data && <SubReddit />}
+                </div>
                 <form onSubmit={this.updatePassword}>
                     <input 
                         onChange={this.handleChanges}
@@ -98,7 +100,7 @@ class Homepage extends React.Component {
                 </form>
                 <button onClick={this.deleteAccount} className="delete-button">Delete Account</button>
                 <div>
-                    <NavLink onClick={this.logOut} className="link" to="/">*Logout</NavLink>
+                    <NavLink onClick={this.logOut} className="logout-link" to="/">*Logout</NavLink>
                 </div>
             </div>
         )

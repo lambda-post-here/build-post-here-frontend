@@ -65,7 +65,7 @@ class Login extends React.Component {
                         </input>
                         <button className="login-button">Login</button>
                         <p>Don't have an account?</p>
-                        <NavLink className="link" to="/register">*Register</NavLink>
+                        <NavLink className="register-link" to="/register">*Register</NavLink>
                     </form>
                 </div>
             </CSSTransition>

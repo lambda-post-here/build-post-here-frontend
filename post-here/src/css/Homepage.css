@@ -46,8 +46,9 @@
 }
 .send-button:hover {
     color: white;
-  background-color: lightslategray;
-  border: 1px solid lightslategray;
+    background-color: lightslategray;
+    border: 1px solid lightslategray;
+    cursor: pointer;
 }
 .delete-button {
     background-color: crimson;
@@ -62,6 +63,7 @@
     color: white;
     background-color: red;
     border: 1px solid red;
+    cursor: pointer;
 }
 
 .update-button {
@@ -75,4 +77,5 @@
 .update-button:hover {
     color: white;
     background-color: black;
+    cursor: pointer;
 }

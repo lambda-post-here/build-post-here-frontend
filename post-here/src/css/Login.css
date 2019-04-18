@@ -38,5 +38,6 @@
 .login-button:hover {
   color: white;
   background-color: lightslategray;
-  border: none;
+  border: 1px solid lightslategray;
+  cursor: pointer;
 }

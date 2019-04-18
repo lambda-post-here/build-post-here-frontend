@@ -5,13 +5,15 @@ import '../css/Homepage.css';
 //components
 import SubReddit from './SubReddit';
 //actions 
-import { getData, deleteAccount } from '../actions';
+import { getData, deleteAccount, updatePassword } from '../actions';
 
 
 class Homepage extends React.Component {
     state={
         title: '',
-        body: ''
+        body: '',
+        passwor: '',
+        image: 'images bro'
     }
 
     handleChanges = (e) => {
@@ -26,7 +28,11 @@ class Homepage extends React.Component {
         //action to call api
         this.props.getData(this.state);
         console.log(this.props.data);
-        
+    }
+
+    updatePassword = (e) => {
+        e.preventDefault();
+        this.props.updatePassword();
     }
 
     deleteAccount = (e) => {
@@ -34,8 +40,18 @@ class Homepage extends React.Component {
         //action to call api
         this.props.deleteAccount()
         .then(() => {
+            this.removeStorage();
             this.props.history.push('/register');
         })
+    }
+
+    removeStorage = () => {
+        localStorage.clear();
+    }
+
+    logOut = (e) => {
+        e.preventDefault();
+        this.removeStorage();
     }
 
     render() {
@@ -64,12 +80,23 @@ class Homepage extends React.Component {
                     </textarea>
                     <button className="send-button">Analyze</button>
                 </form>
-                <button className="update-button">Update Password</button>
+                <form onSubmit={this.updatePassword}>
+                    <input 
+                        onChange={this.handleChanges}
+                        placeholder="Enter your title..."
+                        name="title"
+                        value={this.state.title}
+                        className="title-input"
+                        required
+                    >
+                    </input>
+                    <button className="update-button">Update Password</button>
+                </form>
                 <button onClick={this.deleteAccount} className="delete-button">Delete Account</button>
                 <div>
-                    <NavLink className="link" to="/">*Logout</NavLink>
+                    <NavLink onClick={this.logOut} className="link" to="/">*Logout</NavLink>
                 </div>
-                {this.props.data !== [] ? <SubReddit /> : null}
+                {this.props.data && <SubReddit />}
             </div>
         )
     }
@@ -83,4 +110,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getData, deleteAccount })(Homepage);
+export default connect(mapStateToProps, { getData, deleteAccount, updatePassword })(Homepage);

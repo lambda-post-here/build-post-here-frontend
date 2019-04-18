@@ -8,7 +8,12 @@ class SubReddit extends React.Component {
         return (
             <div>
                 {this.props.data.map((data) => {
-                    return <h1>hello</h1>
+                    return (
+                        <div key={Date.now()}>
+                            <h1>{data.rec}</h1>
+                            <p>{data.score}</p>
+                        </div>
+                    )
                 })}
             </div>
         )

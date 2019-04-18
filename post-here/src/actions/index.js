@@ -59,7 +59,7 @@ export const getData = (post) => dispatch => {
     return axios.post(`${URL}/api/post`, post)
         .then((res) => {
             console.log(res);
-            dispatch({ type: GET_DATA_SUCCESS, payload: res.data.testObj });
+            dispatch({ type: GET_DATA_SUCCESS, payload: res.data });
         })
         .catch((err) => {
             console.log(err);
@@ -67,22 +67,22 @@ export const getData = (post) => dispatch => {
         })
 }
 
-export const updatePassword = (id) => dispatch => {
+export const updatePassword = () => dispatch => {
     dispatch({ type: UPDATE_PASSWORD })
-    return axios.put(`${URL}/api/patch/:id`)
+    return axios.put(`${URL}/api/auth/users`, {headers: {Authorization:localStorage.getItem('token')}})
         .then((res) => {
             console.log(res);
             dispatch({ type: UPDATE_PASSWORD_SUCCESS, payload: res.data });
         })
         .catch((err) => {
             console.log(err);
-            dispatch({ type: UPDATE_PASSWORD_FAIL });
+            dispatch({ type: UPDATE_PASSWORD_FAIL, payload: err});
         })
 }
 
-export const deleteAccount = (id) => dispatch => {
+export const deleteAccount = () => dispatch => {
     dispatch({ type: DELETE_ACCOUNT })
-    return axios.delete(`${URL}/api/auth/:id`)
+    return axios.delete(`${URL}/api/auth/users`, {headers: {Authorization:localStorage.getItem('token')}})
         .then((res) => {
             console.log(res);
             dispatch({ type: DELETE_ACCOUNT_SUCCESS, payload: res.data});

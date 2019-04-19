@@ -14,13 +14,11 @@
 .login-text {
     margin-right: 370px;
 }
-.link {
-    color: black;
-}
+
 .form {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    max-width: 90%;
     margin: 0 auto;
     padding: 10px;
 }
@@ -37,9 +35,15 @@
 }
 .login-button:hover {
   color: white;
-  background-color: lightslategray;
-  border: 1px solid lightslategray;
+  background-color: #8694B8;
+  border: 1px solid #8694B8;
   cursor: pointer;
+}
+.login-link {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* appear on page load */

@@ -65,7 +65,7 @@ class Register extends React.Component {
                     </input>
                     <button className="register-button">Register</button>
                     <p>Already have an account?</p>
-                    <NavLink className="link" to="/">*Login</NavLink>
+                    <NavLink className="login-link" to="/">*Login</NavLink>
                 </form>
             </div>
             </CSSTransition>

@@ -22,7 +22,7 @@
 }
 .text-area {
     resize: none;
-    width: 400px;
+    width: 80%;
     height: 200px;
     outline: none;
     overflow: auto;
@@ -32,7 +32,7 @@
     margin-bottom: 10px;
 }
 .title-input {
-    width: 402px;
+    width: 80%;
     padding: 10px;
     border-radius: 5px 5px 0px 0px;
     border: none;

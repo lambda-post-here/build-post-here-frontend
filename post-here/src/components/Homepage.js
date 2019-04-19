@@ -7,7 +7,6 @@ import SubReddit from './SubReddit';
 //actions 
 import { getData, deleteAccount, updatePassword } from '../actions';
 
-
 class Homepage extends React.Component {
     state={
         title: '',

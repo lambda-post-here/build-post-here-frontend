@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+  }
+  #container {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 5px;
+  }
+  .reddit-link {
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-decoration: none;
+      color: black;
+      text-decoration: underline;
+  }
+  .percentage {
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    color: black;
+  }
